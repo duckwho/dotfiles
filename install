@@ -1,0 +1,47 @@
+#!/bin/sh
+
+unamestr=`uname`
+CURRENT_DIR=$(pwd)
+ETC_DIR=$HOME/etc
+CONF_DIR=$HOME/.config
+
+
+if [[ "$unamestr" == 'Linux' ]]; then
+  # Create etc directory if not exist
+  if [ ! -d "$ETC_DIR" ]; then 
+    mkdir $ETC_DIR
+  fi
+
+
+if [ ! -d "$ETC_DIR" ]; then 
+  mkdir $ETC_DIR
+fi
+
+for i in $CURRENT_DIR/* ; do
+  if [ -d "$i" ]; then
+    if [ ! -d "$ETC_DIR/$(basename "$i")" ]; then 
+      echo "created "$(basename "$i")
+      ln -s $CURRENT_DIR/$(basename "$i") $ETC_DIR/$(basename "$i")
+    else 
+      echo "directory already exists"
+    fi
+  fi
+done
+
+ elif [[ "$unamestr" == 'Darwin' ]]; then
+
+
+  if [ ! -d "$CURRENT_DIR/$CON_DIR/git" ]; then 
+    echo "created files"
+    ln -s $CURRENT_DIR/git $CONF_DIR/git
+    ln -s $CURRENT_DIR/gnupg $CONF_DIR/gnupg
+    ln -s $CURRENT_DIR/mksh/sh.d $HOME/.sh.d
+    ln -s $CURRENT_DIR/mksh/mkshrc $HOME/.mkshrc
+    ln -s $CURRENT_DIR/nix $CONF_DIR/nix
+    ln -s $CURRENT_DIR/nvim $CONF_DIR/nvim
+    ln -s $CURRENT_DIR/tmux/tmux.conf $HOME/.tmux.conf
+  else
+    echo "directories already exist"
+  fi
+fi
+
