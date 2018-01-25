@@ -34,10 +34,8 @@ done
   if [ ! -d "$CURRENT_DIR/$CON_DIR/git" ]; then 
     echo "created files"
     ln -s $CURRENT_DIR/git $CONF_DIR/git
-    ln -s $CURRENT_DIR/gnupg $CONF_DIR/gnupg
     ln -s $CURRENT_DIR/mksh/sh.d $HOME/.sh.d
     ln -s $CURRENT_DIR/mksh/mkshrc $HOME/.mkshrc
-    ln -s $CURRENT_DIR/nix $CONF_DIR/nix
     ln -s $CURRENT_DIR/nvim $CONF_DIR/nvim
     ln -s $CURRENT_DIR/tmux/tmux.conf $HOME/.tmux.conf
   else

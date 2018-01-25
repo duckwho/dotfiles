@@ -1,0 +1,12 @@
+[ -o login ] && . $HOME/.profile
+. $HOME/.sh.d/functions
+. $HOME/.sh.d/alias
+. $HOME/.sh.d/prompt
+. $HOME/.sh.d/bind
+
+HISTFILE=$HOME/.sh.d/history
+HISTSIZE=4096
+CDPATH=.:$HOME:/
+
+[ -f ~/.fzf.mksh ] && source ~/.fzf.mksh
+stty -ixon

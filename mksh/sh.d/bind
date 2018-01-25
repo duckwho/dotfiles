@@ -1,0 +1,3 @@
+bind ^[a=beginning-of-line
+bind ^[e=end-of-line
+bind ^L=clear-screen
