@@ -1,6 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/home/duckwho/lib/git'
-let g:netrw_dirhist_2='/home/duckwho/lib/git/dotfiles'
-let g:netrw_dirhist_3='/home/duckwho/lib/git'
-let g:netrw_dirhist_4='/home/duckwho/lib/git/dotfiles'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/home/duckwho/lib/themes'

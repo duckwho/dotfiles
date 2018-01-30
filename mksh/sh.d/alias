@@ -1,17 +1,19 @@
-# $dotfiles: alias, v 1.0  2016/03/11 00:58:00 dcat Exp $
-
-alias ls="$LS -1F"
-alias la="$LS -Alh"
-alias ll="$LS -alhF"
-alias l="$LS -1 --color=auto"
+# ls variants
+#alias ls="ls -1F"
+#alias la="ls -Alh"
+#alias ll="ls -alhF"
+#alias l="ls -1 --color=auto"
+alias ls='ls -1F --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
 
 # alias ~='cd'
-#alias -- -='cd -'
+# alias -- -='cd -'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
-#alias pg=$PAGER
 alias db=$DEBUGGER
 alias cc=$CC
 alias trace=$TRACER
@@ -23,126 +25,99 @@ alias p=pwd
 alias w=whoami
 alias Z=exit
 
+# yye
+alias x="startx"
+alias c="clear"
+
 # logs
 alias @messages="vim /var/log/messages +$"
 alias @authlog="vim -c 'set ft=messages' /var/log/authlog +$"
 alias @daemon="vim /var/log/daemon +$"
 alias @secure="doas vim -c 'set ft=messages' /var/log/secure +$"
 
+# conversions
 alias hex2dec="printf '%d\n'"
 alias dec2hex="printf '0x%x\n'"
-alias bell='tput bel'
 
+# ssh
 alias ssh2s="ssh ep34@cs-ssh.calvin.edu"
+
+# bluetooth
 alias sb="sudo systemctl stop bluetooth"
 alias tb="sudo systemctl start bluetooth"
-alias inode-dir="xdg-mime default pcmanfm.desktop inode/directory"
+
+# neofetch
 alias neofetch2="neofetch --crop_mode fit --w3m ~/usr/img/miku.jpg"
+
+# mountusb
 alias musb="udisksctl mount --block-device"
 alias umusb="udisksctl unmount --block-device"
 alias musbt="udisksctl mount --block-device /dev/sdb1"
 alias umusbt="udisksctl unmount --block-device /dev/sdb1"
-alias gitc=""
-alias gitpl=""
-alias gitps=""
+
+# rsync with progress bar
 alias rsync="rsync -avh --progress"
+
+# timeset
+alias timeset="sudo ntpdate pool.ntp.org"
+
+# clear journl
+alias clearjournal="journalctl --vacuum-time=2d"
+
+# dd
+alias isoinstall="sudo dd if=$HOME/what-to-download.iso of=/dev/sdb bs=8M"
+alias formatusb="sudo dd if=/dev/zero of=/dev/sdb"
+
+# emacs
 alias e="emacsclient -c -a -q -n"
 alias et="emacsclient -t -a -q"
-alias eda="emacs --daemon"
-alias se="sudo emacs"
-alias v="nvim"
-alias ddd="man"
+
+# vim
+alias v="vim"
 alias sv="sudo nvim"
 alias vim="nvim"
+alias vimdiff='nvim -d'
+
+# tmux
+alias t='tmux'
+
+# confs
 alias confterm="nvim $HOME/.config/alacritty/alacritty.yml"
 alias confemacs="nvim $HOME/.emacs.d/README.org"
 alias confsxhkd="nvim $HOME/.config/sxhkd/sxhkdrc"
 alias confbar="nvim $HOME/.config/polybar/config"
 alias confbspwm="nvim $HOME/.config/bspwm/bspwmrc"
 alias confvim="nvim $HOME/.config/nvim/init.vim"
-alias confzsh="nvim $HOME/.zshrc"
+alias confsh="nvim $HOME/.mkshrc"
+alias confshalias="nvim $HOME/.sh.d/alias"
+alias confshfunctions="nvim $HOME/.sh.d/functions"
 alias confinit="nvim $HOME/.xinitrc"
-alias todo="nvim $HOME/Documents/Notes/Homework.org"
-alias ee="emacsclient -c -a -q -n $HOME/.emacs.d/dotemacs/settings.org"
-alias ur="emacsclient -c -a -q -n $HOME/.Xresources"
-alias xs="emacsclient -c -a -q -n $HOME/.xinitrc"
-alias z="emacsclient -c -a -q -n $HOME/.zshrc"
-alias prc="emacsclient -c -a -q -n $HOME/.pentadactylrc"
-alias vrc="emacsclient -c -a -q -n $HOME/.vimperatorrc"
-alias todo="emacsclient -c -a -q -n $HOME/Documents/Notes/Homework.org"
+
+# text
+alias todo="nvim $HOME/usr/docs/todo.md"
+alias diary='nvim $HOME/usr/docs/diary/`date +%Y/%m/%d`.md'
+alias cs214='nvim $HOME/usr/docs/notes/cs214/`date +%Y/%m/%d`.md'
+alias cs232='nvim $HOME/usr/docs/notes/cs232/`date +%Y/%m/%d`.md'
+alias bio161='nvim $HOME/usr/docs/notes/bio161/`date +%Y/%m/%d`.md'
+
+# pacman
 alias pa="pacaur -S"
 alias u="pacaur -Syu"
 alias rp="pacaur -Rs"
-alias p="python"
-alias p2="python2"
-alias shutdown="sudo shutdown now"
-alias x="startx"
-alias c="clear"
-alias xmod="xmodmap $HOME/.xmodmap"
-alias isoinstall="sudo dd if=$HOME/what-to-download.iso of=/dev/sdb bs=8M"
-alias formatusb="sudo dd if=/dev/zero of=/dev/sdb"
-alias grubup="sudo grub-mkconfig -o /boot/grub/grub.cfg"
-alias mygitthing="git clone https://mangotop@bitbucket.org/mangotop/tutorial.git"
+
+# update font cache
 alias fcv="fc-cache -vf"
-alias mkw="cd $HOME/Templates/Sources/WM/2bwm && make && sudo make install clean"
-alias setwall="feh --randomize --bg-fill"
-alias bigaurinstall="yaurt -S 9menu clarity-icon-theme compton epson-inkjet-printer-201207w google-chrome lemonbar-xft-git libreoffice-style-breeze-git light mpdris2 nuntilus powerline-fonts-git  python-pypeg2 qutebrowser rofi-git sxiv-rifle ttf-mplus ttf-nanum ttf-roboto"
-alias youtubemp3down="youtube-dl --extract-audio --audio-format mp3 "
-alias jackstart="jack_control start"
-alias libreoffice="libreoffice --nologo"
-alias cdtspc="cd $HOME/Templates/Sources/Practice/C"
-alias anime="cd $HOME/Downloads/Torrents/"
-alias netinf="iw dev wlp3s0b1 link"
-# alias confpanel="emacsclient -c -a -q -n $HOME/.bin/panel/panel"
-# alias confpanel2="emacsclient -c -a -q -n $HOME/.bin/panel/panel_bar"
-# alias confsxhkd="emacsclient -c -a -q -n $HOME/.config/sxhkd/sxhkdrc"
-# alias confbar="emacsclient -c -a -q -n $HOME/.config/polybar/config"
-# alias conflemon="emacsclient -c -a -q -n $HOME/.config/lemonbuddy/config"
-# alias confbspwm="emacsclient -c -a -q -n $HOME/.config/bspwm/bspwmrc"
-alias xrdbupdate="xrdb -load .Xresources"
-alias codedir="cd ~/Code"
+
+# gtk keybindings
 alias defaultkeys="gsettings set org.gnome.desktop.interface gtk-key-theme \"Default\""
 alias emacskeys="gsettings set org.gnome.desktop.interface gtk-key-theme \"Emacs\""
-alias unzip="unzip -O cp949"
-alias timeset="sudo ntpdate pool.ntp.org"
-alias ls='ls --color=auto'
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-alias condir='mkdir condir'
-alias conmake='conda create -n mytest python=3'
-alias diary='vim $HOME/doc/diary/`date +%Y/%m/%d`.md'
-alias t='tmux'
-alias conact='source activate mytest'
-alias conreq='conda install ipython mock'
-# alias youtubemp3down="youtube-dl --extract-audio --audio-format mp3 ZiH361jcxWk"
-# alias clearjournal="journalctl --vacuum-time=2d"
-# alias clearjournal2="journalctl --vacuum-size=500M"
-# alias steamfix="find ~/.steam/root/ \( -name "libgcc_s.so*" -o -name "libstdc++.so*" -o -name "libxcb.so*" \) -print -delete"
-# alias ffmpegtrans="ffmpeg -i file.mp3 file.wav"
-# alias rsam="sudo /etc/init.d/samba restart"
-# alias hello="$HOME/Templates/Sources/Scripts/statusline.sh | lemonbar -p -B#232629 -f "NanumGothicExtraBold-8" -g 1366x16+0+0 -p &
-# alias tsgg="sudo timedatectl set-time "2015-05-09 14:42:40""
-# alias gitthebar="git clone https://github.com/LemonBoy/bar.git"
-# alias gitthexftbar="git clone https://github.com/krypt-n/bar.git"
-# alias simpleterminal="git clone http://git.suckless.org/st"
-# alias install2bwm="git clone git://github.com/venam/2bwm.git"
-# alias install2bwm="git clone git://github.com/venam/2bwm.git"
-# alias updatespacemacs="git pull --rebase"
-# alias updatespacemacs2="git submodule sync; git submodule update"
-# sudo timedatectl set-timezone UTC
-# alias pa="sudo pacman -S"
-# alias u="sudo pacman -Syu"
-# alias rp="sudo pacman -Rs"
-# alias ya="yaourt --aur-url https://aur4.archlinux.org -S"
-# alias ug="yaourt --aur-url https://aur4.archlinux.org -Syu"
-# alias ya="yaourt -S"
-# alias ug="yaourt -Syu --aur"
-#vim mode
-# bindkey -v
-#emacs mode
-#bindkey -e
-alias vimdiff='nvim -d'
+
+# youtube mp3 download
+alias youtubemp3down="youtube-dl --extract-audio --audio-format mp3 "
+
+# hangul issue with archive files
 alias mp3conv='find -type f -iregex ".*/.*\.\(ogg\|mp3\|flac\)" -print0 | xargs -0 mid3iconv -e cp949'
+alias unzip="unzip -O cp949"
 
-
+# sxiv
+#alias sxiv="sxiv-rifle"

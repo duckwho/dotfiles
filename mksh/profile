@@ -12,42 +12,40 @@ LESSCHARSET=utf-8
 
 
 PATH=/bin:/sbin:/usr/bin/:/usr/sbin:/usr/local/bin:/usr/local/sbin
-PATH=$PATH:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:$HOME/bin:$HOME/.cargo/bin
+PATH=$PATH:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:$HOME/bin:$HOME/bin/pkgs:$HOME/.cargo/bin
 GOPATH=$HOME/.go
 
 
 XDG_CONFIG_HOME=$HOME/.config
 MAIL=/var/mail/duckwho
 
-
 EDITOR=nvim
 VISUAL=$EDITOR
 PAGER='less -R'
 MANWIDTH=80
+
 DUCK_THEME=simpl
 DUCK_COLOR=ish
 
 CC=cc
 DEBUGGER=gdb
-TRACER=ktrace
-
-LS=ls
+TRACER=strace
 
 MPD_HOST=duckwho
 
+W3MIMGDISPLAY_PATH=$HOME/bin/misc/w3mfix
 
 QT_QPA_PLATFORMTHEME="qt5ct"
-
 
 UNZIP="-O cp949"
 ZIPINFO="-O cp949"
 
+TASKDDATA=$HOME/var/taskd
 
 export LC_COLLATE LC_CTYPE LC_MESSAGES LC_MONETARY LC_NUMERIC LC_TIME LC_ALL \
        LANG LANGUAGE LESSCHARSET TZ PATH GOPATH XDG_CONFIG_HOME MAIL EDITOR VISUAL \
        PAGER BROWSER MANWIDTH CC DEBUGGER TRACER MPD_HOST QT_QPA_PLATFORMTHEME \
        DUCK_THEME UNZIP ZIPINFO
-
 
 # if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
 # exec startx

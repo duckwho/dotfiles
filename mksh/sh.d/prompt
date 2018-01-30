@@ -8,7 +8,7 @@ _prompt() {
 	case $? in
 	# EXIT_SUCCESS or ^C
 	0|130)
-		RET=240
+		RET=249
 		;;
 	# command not found
 	127)

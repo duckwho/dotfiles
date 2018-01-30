@@ -1,3 +1,4 @@
+# colored-man-pages from oh-my-zsh
 if [[ "$OSTYPE" = solaris* ]]
 then
 	if [[ ! -x "$HOME/bin/nroff" ]]

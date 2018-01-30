@@ -30,16 +30,43 @@ done
 
  elif [[ "$unamestr" == 'Darwin' ]]; then
 
-
   if [ ! -d "$CURRENT_DIR/$CON_DIR/git" ]; then 
-    echo "created files"
+    echo "git config made!"
     ln -s $CURRENT_DIR/git $CONF_DIR/git
-    ln -s $CURRENT_DIR/mksh/sh.d $HOME/.sh.d
-    ln -s $CURRENT_DIR/mksh/mkshrc $HOME/.mkshrc
-    ln -s $CURRENT_DIR/nvim $CONF_DIR/nvim
-    ln -s $CURRENT_DIR/tmux/tmux.conf $HOME/.tmux.conf
   else
-    echo "directories already exist"
+    echo "This config already exists"
   fi
+
+  if [ ! -d "$HOME/.sh.d" ]; then 
+    echo ".sh.d made!"
+    ln -s $CURRENT_DIR/mksh/sh.d $HOME/.sh.d
+  else 
+    echo "This config already exists"
+  fi
+
+  if [ ! -f "$HOME/.mkshrc" ]; then 
+    echo "mksh config made!"
+    ln -s $CURRENT_DIR/mksh/mkshrc $HOME/.mkshrc
+  else 
+    echo "This config already exists"
+  fi
+
+  if [ ! -d "$HOME/.config/nvim" ]; then 
+    echo "nvim config made!"
+    ln -s $CURRENT_DIR/nvim $CONF_DIR/nvim
+  else 
+    echo "This config already exists"
+  fi
+
+  if [ ! -f "$HOME/.tmux.conf" ]; then 
+    echo "tmux config made!"
+    ln -s $CURRENT_DIR/tmux/tmux.conf $HOME/.tmux.conf
+  else 
+    echo "This config already exists"
+  fi
+
 fi
+
+
+
 
